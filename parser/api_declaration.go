@@ -71,7 +71,6 @@ func (api *ApiDeclaration) AddSubApi(op *Operation) {
 	if subApi == nil {
 		subApi = NewApi()
 		subApi.Path = op.Path
-		subApi.Description = op.Summary
 
 		api.Apis = append(api.Apis, subApi)
 	}
