@@ -13,8 +13,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/yvasiyarov/swagger/markup"
-	"github.com/yvasiyarov/swagger/parser"
+	"github.com/fiolkaf/swagger/markup"
+	"github.com/fiolkaf/swagger/parser"
 )
 
 const (
@@ -135,11 +135,10 @@ func Run(params Params) error {
 	}
 
 	log.Println("Start parsing")
-
 	//Support gopaths with multiple directories
 	dirs := strings.Split(gopath, ":")
 	if runtime.GOOS == "windows" {
-        	dirs = strings.Split(gopath, ";")
+		dirs = strings.Split(gopath, ";")
 	}
 	found := false
 	for _, d := range dirs {

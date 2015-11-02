@@ -2,9 +2,9 @@ package parser_test
 
 import (
 	"fmt"
+	"github.com/fiolkaf/swagger/parser"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
-	"github.com/yvasiyarov/swagger/parser"
 	"go/ast"
 	//	"log"
 	"os"

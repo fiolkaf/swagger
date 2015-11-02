@@ -48,13 +48,12 @@ func (parser *Parser) IsImplementMarshalInterface(typeName string) bool {
 
 //Read web/main.go to get General info
 func (parser *Parser) ParseGeneralApiInfo(mainApiFile string) {
-
 	fileSet := token.NewFileSet()
 	fileTree, err := goparser.ParseFile(fileSet, mainApiFile, nil, goparser.ParseComments)
 	if err != nil {
 		log.Fatalf("Can not parse general API information: %v\n", err)
 	}
-	
+
 	parser.Listing.BasePath = "{{.}}"
 	parser.Listing.SwaggerVersion = SwaggerVersion
 	if fileTree.Comments != nil {
@@ -210,6 +209,7 @@ func (parser *Parser) AddOperation(op *Operation) {
 			Path:        api.ResourcePath,
 			Description: op.Summary,
 		}
+
 		parser.Listing.Apis = append(parser.Listing.Apis, apiRef)
 	}
 
@@ -401,6 +401,7 @@ func (parser *Parser) FindModelDefinition(modelName string, currentPackage strin
 }
 
 func (parser *Parser) ParseApiDescription(packageName string) {
+
 	parser.CurrentPackage = packageName
 	pkgRealPath := parser.GetRealPackagePath(packageName)
 
